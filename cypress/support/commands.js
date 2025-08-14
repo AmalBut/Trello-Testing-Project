@@ -25,10 +25,14 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('loginToTrello', () => { 
+      cy.intercept("/flags/api/v2/configurations").as("login")
       cy.visit("/login")
-      cy.wait(3000)
+      cy.wait("@login")
+      cy.once('uncaught:exception', () => false);
       cy.get('[name=username]').type("amalbutmah376@gmail.com");
       cy.get('#login-submit').click();
+      cy.intercept("/rest/marketing-consent/config").as("pass")
+      cy.wait("@pass")
       cy.get('#password').type("amal123123@#"+"{enter}");  
       cy.get('#login-submit').click();
       cy.wait(6000)

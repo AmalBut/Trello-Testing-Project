@@ -6,6 +6,7 @@ class createBoardActions {
     }
 
     clickOnCreateBoardButton(){
+        cy.wait(5000)
         cy.findByTestId("header-create-board-button").click();
         return this;
     }

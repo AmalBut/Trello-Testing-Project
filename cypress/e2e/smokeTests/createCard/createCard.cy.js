@@ -13,7 +13,7 @@ const cardName = "my card";
 let boardId , boardUrl; 
 
 before(()=>{
-    datautiles.createBoard("RazanBoard").then((resp)=>{
+    datautiles.createBoard("AmalBoard").then((resp)=>{
         boardUrl = resp.body.url;
         boardId = resp.body.id
     })
