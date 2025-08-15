@@ -4,8 +4,10 @@ import { Given , When , Then } from "cypress-cucumber-preprocessor/steps";
 import dataUtiles from "../../../support/datautiles.cy";
 import createCardActions from "../../../pageObjects/createCard/Actions.cy";
 import createCardAssertions from "../../../pageObjects/createCard/Assertions.cy";
+import sharedActions from "../../../pageObjects/shared/Actions.cy";
 
-const datautiles = new dataUtiles()
+const datautiles = new dataUtiles();
+const sharedAction = new sharedActions();
 const cardAction = new createCardActions();
 const cardAssertion = new createCardAssertions();
 const cardName = "my card";
@@ -21,7 +23,7 @@ before(()=>{
 })
 
 Given('The user navigated to board',()=>{
-    cardAction.openBoard(boardUrl)
+    sharedAction.openUrl(boardUrl)
 })
 
 When("Clicks on Add a card button",()=>{

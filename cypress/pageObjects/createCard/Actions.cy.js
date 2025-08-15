@@ -1,10 +1,5 @@
 class createCardActions {
 
-    openBoard(boardUrl){
-        cy.visit(boardUrl)
-        cy.wait(5000)
-        return this;
-    }
      clickOnAddACardButton(){
         cy.findByTestId("list-add-card-button").first().click()
         return this;
