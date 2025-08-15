@@ -13,6 +13,7 @@ class deleteCardAssertions{
         datautiles.getCard(cardId).then((resp)=>{
             expect(resp.status).to.eq(404);
         })
+        return this;
     }
 }
 export default deleteCardAssertions;
