@@ -30,6 +30,7 @@ Cypress.Commands.add('loginToTrello', () => {
       cy.once('uncaught:exception', () => false);
       cy.get('[name=username]').type("amalbutmah376@gmail.com");
       cy.get('#login-submit').click();
+      cy.wait(3000);
       cy.get('#password').type("amal123123@#"+"{enter}");  
       cy.get('#login-submit').click();
       cy.wait(6000)

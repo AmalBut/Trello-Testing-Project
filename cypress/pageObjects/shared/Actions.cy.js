@@ -3,7 +3,7 @@ class sharedActions{
     openUrl(url){
         cy.visit(url);
         cy.once('uncaught:exception', () => false);
-        cy.wait(5000);
+        cy.wait(6000);
         return this;
     }
 

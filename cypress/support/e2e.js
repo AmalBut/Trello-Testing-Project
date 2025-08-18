@@ -15,3 +15,10 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+Cypress.on('uncaught:exception', (err) => {
+  // Ignore only the noisy postMessage error
+  if (err.message && err.message.includes('postMessage')) {
+    return false; // prevents Cypress from failing the test
+  }
+  // Let other errors fail the test
+});
