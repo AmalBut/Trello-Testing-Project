@@ -14,7 +14,7 @@ const deleteCardAssertion = new deleteCardAssertions();
 const cardAssertion = new createCardAssertions();
 const cardName = "Amal Card";
 
-let boardId , boardUrl, listId, cardUrl, cardId; 
+let boardId , boardUrl, listId, cardUrl, cardId, listName; 
 
 before(()=>{
     datautiles.createBoard("AmalBoard").then((boardResp)=>{
@@ -23,6 +23,7 @@ before(()=>{
    
         datautiles.getList(boardId).then((listResp)=>{
             listId = listResp.body[0].id;
+            listName = listResp.body[0].name;
 
             datautiles.createCard(listId,cardName).then((cardResp)=>{
                 cardUrl = cardResp.body.shortUrl;
@@ -54,8 +55,13 @@ When('Clicks on Delete confimation button',()=>{
 Then('The card should be closed',()=>{
     deleteCardAssertion.checkCardClosed();
 })
-Then('The card should be removed from the board successfully',()=>{
-    deleteCardAssertion.checkCardRemoved(cardId);
+
+Then('The card should be deleted successfully',()=>{
+    deleteCardAssertion.checkCardIsDeleted(cardId);
+})
+
+Then('The card should be removed from the list',()=>{
+    deleteCardAssertion.checkTemplateRemovedFromList(cardName,listName);
 })
 
 after(()=>{

@@ -7,4 +7,5 @@ Feature: Delete Card functionality
         And Clicks on "Delete" option
         And Clicks on Delete confimation button
         Then The card should be closed
-        Then The card should be removed from the board successfully
+        And The card should be deleted successfully
+        And The card should be removed from the list
