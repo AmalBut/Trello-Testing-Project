@@ -4,12 +4,11 @@ const datautiles = new dataUtiles();
 
 class hideTemplateAssertions{
     checkTemplateRemovedFromList(templateName,listName){
-   // cy.findByTestId("CloseIcon").click();
-    cy.contains("[data-testid=list-header]", listName)
-      .siblings("[data-testid='list-cards']")
-      .contains("li", templateName)
-      .and('not.exist');
-    return this;
+        cy.contains("[data-testid=list-header]", listName)
+        .siblings("[data-testid='list-cards']")
+        .contains("li", templateName)
+        .and('not.exist');
+        return this;
     }
 
     checkTemplateIsNotDeleted(templateId){
