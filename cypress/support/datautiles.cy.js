@@ -24,5 +24,9 @@ class dataUtiles {
     createTemplate = (listId,templateName)=>{
         return cy.request("POST",`https://api.trello.com/1/cards?idList=${listId}&isTemplate=true&name=${templateName}&key=${APIKey}&token=${APIToken}`)
     }
+
+    getTemplate = (templateId)=>{
+        return cy.request({url:`https://api.trello.com/1/cards/${templateId}?key=${APIKey}&token=${APIToken}`, failOnStatusCode: false})
+    }
 }
 export default dataUtiles;
