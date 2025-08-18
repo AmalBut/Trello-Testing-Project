@@ -1,6 +1,11 @@
 class deleteCardActions {
+    clickOnCard(cardName){
+        cy.contains('[data-testid="trello-card"]', cardName)
+        .click();
+    }
     clickOnActionsIcon(){
         cy.findByTestId("card-back-actions-button").click();
+        cy.wait(3000)
         return this;
     }
 

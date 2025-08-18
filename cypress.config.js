@@ -7,6 +7,7 @@ module.exports = defineConfig({
    setupNodeEvents(on, config) {
      on("file:preprocessor", cucumber());
    },
-   chromeWebSecurity: false
+   chromeWebSecurity: false,
+   screenshotsFolder:"TrelloScreenshots"
  },
 });

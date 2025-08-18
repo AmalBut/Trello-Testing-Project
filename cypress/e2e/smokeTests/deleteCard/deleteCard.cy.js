@@ -11,7 +11,6 @@ const datautiles = new dataUtiles();
 const  sharedAction= new sharedActions();
 const deleteCardAction = new deleteCardActions();
 const deleteCardAssertion = new deleteCardAssertions();
-const cardAssertion = new createCardAssertions();
 const cardName = "Amal Card";
 
 let boardId , boardUrl, listId, cardUrl, cardId, listName; 
@@ -26,7 +25,6 @@ before(()=>{
             listName = listResp.body[0].name;
 
             datautiles.createCard(listId,cardName).then((cardResp)=>{
-                cardUrl = cardResp.body.shortUrl;
                 cardId = cardResp.body.id;
             })
         })
@@ -36,8 +34,13 @@ before(()=>{
     cy.loginToTrello();
 })
 
-Given('The user navigated to card',()=>{
-    sharedAction.openUrl(cardUrl);
+Given('The user navigated to board',()=>{
+    sharedAction.openUrl(boardUrl);
+    cy.screenshot({capture:"fullPage"});
+})
+
+When('Clicks on the card',()=>{
+    deleteCardAction.clickOnCard(cardName);
 })
 
 When('Clicks on Actions icon',()=>{
