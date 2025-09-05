@@ -44,7 +44,7 @@ When('Selects Hide from list option',()=>{
 })
 
 Then('The template should be removed from the list',()=>{
-    hideTemplateAssertion.checkTemplateRemovedFromList(templateId,listName);
+    hideTemplateAssertion.checkTemplateRemovedFromList(templateName,listName);
 })
 Then('The template should not be deleted',()=>{
     hideTemplateAssertion.checkTemplateIsNotDeleted(templateId);

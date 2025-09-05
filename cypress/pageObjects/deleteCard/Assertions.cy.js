@@ -11,7 +11,7 @@ class deleteCardAssertions{
         cy.contains("[data-testid=list-header]", listName)
         .siblings("[data-testid='list-cards']")
         .contains("li", cardName)
-        .and('not.exist');
+        .should('not.exist');
         return this;
     }
 
